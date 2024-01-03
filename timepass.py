@@ -1,12 +1,24 @@
 import requests
-import csv
 
+# API endpoint and parameters
+api_url = "https://min-api.cryptocompare.com/data/v2/histoday"
+api_key = "2b44f1fc466577cb553820b4d1221ec1eab50ad4877b3ebfe79d1166da476f61"  # Replace with your actual CryptoCompare API key
+fsym = "BTC"
+tsym = "USD"
+limit = 1461  # Adjusted limit for the desired period (1461 days)
+toTs = 1643673600  # Unix timestamp for 2022-01-31
+fromTs = 1514764800  # Unix timestamp for 2018-01-01
 
-for _ in range(1,13):
-    url = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&month=2018-0{_}&outputsize=full&apikey=KY07Z1XZGQSO9ITA'
+# Construct the API request URL with both fromTs and toTs
+url = f"{api_url}?fsym={fsym}&tsym={tsym}&limit={limit}&toTs={toTs}&fromTs={fromTs}&api_key={api_key}"
 
-    r = requests.get(url)
-    with open(f'data{_}.csv', 'w') as f:
-        writer = csv.writer(f)
-        for line in r.iter_lines():
-            writer.writerow(line.decode('utf-8').split(','))
+# Make the API request
+response = requests.get(url)
+data = response.json()
+
+# Print the formatted data
+print(data)
+
+# Additional options:
+# - Save the data to a CSV file: df.to_csv("btc_historical_data.csv")
+# - Perform further analysis or visualization using pandas
