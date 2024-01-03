@@ -1,4 +1,6 @@
 import requests
+import csv
+from datetime import datetime
 
 # API endpoint and parameters
 api_url = "https://min-api.cryptocompare.com/data/v2/histoday"
@@ -15,10 +17,29 @@ url = f"{api_url}?fsym={fsym}&tsym={tsym}&limit={limit}&toTs={toTs}&fromTs={from
 # Make the API request
 response = requests.get(url)
 data = response.json()
-
+data = data["Data"]["Data"]
 # Print the formatted data
-print(data)
-
 # Additional options:
 # - Save the data to a CSV file: df.to_csv("btc_historical_data.csv")
 # - Perform further analysis or visualization using pandas
+
+if response.status_code == 200:
+    with open("btc_historical_data.csv", mode="w", newline="") as csv_file:
+
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(['time', 'open', 'high', 'low', 'close', 'volumeto'])
+
+        for row in data:
+            csv_writer.writerow([
+                datetime.utcfromtimestamp(row['time']).strftime('%Y-%m-%d %H:%M:%S'),
+                row['open'],
+                row['high'],
+                row['low'],
+                row['close'],
+                row['volumeto'],
+                # row['conversionType'],
+                # row['conversionSymbol']
+            ])
+
+
+  
