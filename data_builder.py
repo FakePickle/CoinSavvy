@@ -31,7 +31,7 @@ if response.status_code == 200:
 
         for row in data:
             csv_writer.writerow([
-                datetime.utcfromtimestamp(row['time']).strftime('%Y-%m-%d %H:%M:%S'),
+                datetime.utcfromtimestamp(row['time']).strftime('%Y-%m-%d'),
                 row['open'],
                 row['high'],
                 row['low'],
