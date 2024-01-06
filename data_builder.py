@@ -8,7 +8,7 @@ api_key = "2b44f1fc466577cb553820b4d1221ec1eab50ad4877b3ebfe79d1166da476f61"  # 
 fsym = "BTC"
 tsym = "USD"
 limit = 1461  # Adjusted limit for the desired period (1461 days)
-toTs = 1643673600  # Unix timestamp for 2022-01-31
+toTs = 1672516800  # Unix timestamp for 2022-01-31
 fromTs = 1514764800  # Unix timestamp for 2018-01-01
 
 # Construct the API request URL with both fromTs and toTs
@@ -24,7 +24,7 @@ data = data["Data"]["Data"]
 # - Perform further analysis or visualization using pandas
 
 if response.status_code == 200:
-    with open("btc_historical_data.csv", mode="w", newline="") as csv_file:
+    with open("new_dataset.csv", mode="w", newline="") as csv_file:
 
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(['time', 'open', 'high', 'low', 'close', 'volumeto'])
