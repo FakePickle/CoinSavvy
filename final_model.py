@@ -9,7 +9,7 @@ import csv
 data = pd.read_csv('btc_historical_data.csv')
 open_value_start = 38721.49
 
-#Model that predicts high value based on open value
+# Model that predicts high value based on open value
 X_features1 = ['open']
 target_column1 = 'high'
 
@@ -19,7 +19,7 @@ y_train1 = data[target_column1]
 high_predictor_model = LinearRegression()
 high_predictor_model.fit(X_train1, y_train1) 
 
-#Model that predicts low value based on open and high values
+# Model that predicts low value based on open and high values
 X_features2 = ['open','high']
 target_column2 = 'low'
 
@@ -29,7 +29,7 @@ y_train_2 = data[target_column2]
 low_predictor_model = LinearRegression()
 low_predictor_model.fit(X_train_2, y_train_2)
 
-#Model that predicts close value based on open, high and low values
+# Model that predicts close value based on open, high and low values
 X_features3 = ['open','high','low']
 target_column3 = 'close'
 
@@ -47,11 +47,9 @@ close_predictor_model.fit(X_train_3, y_train_3)
 # print("Predicted low value: ", low_predict)
 # print("Predicted close value: ", close_predict)
 
-
 starting_date = '2022-02-01'
 current_date = datetime.strptime(starting_date, '%Y-%m-%d')
 end_date = datetime(current_date.year, 12, 31)
-
 
 with open("predicted_dataset.csv", mode="w", newline="") as csv_file:
 
@@ -75,4 +73,3 @@ with open("predicted_dataset.csv", mode="w", newline="") as csv_file:
 
         open_value_start = close_predict
         current_date += timedelta(days=1)
-
