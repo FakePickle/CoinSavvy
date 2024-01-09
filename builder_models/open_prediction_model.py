@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import csv
 
 # Load the dataset using pandas
-data = pd.read_csv('datasets\training_dataset.csv')
+data = pd.read_csv('datasets/training_dataset.csv')
 open_value_start = 38721.49
 
 # Model that predicts high value based on open value
