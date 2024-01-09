@@ -20,7 +20,8 @@ data = response.json()
 data = data["Data"]["Data"]
 
 if response.status_code == 200:
-    with open("new_dataset.csv", mode="w", newline="") as csv_file:
+    # Replace #dataset.csv with "datasets\training_dataset.csv" or "datasets\testing_dataset.csv" depending on which dataset you are building
+    with open("#dataset.csv", mode="w", newline="") as csv_file:
 
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(['time', 'open', 'high', 'low', 'close', 'volumeto'])
