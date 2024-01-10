@@ -6,3 +6,5 @@ matplotlib
 requests
 csv
 datetime
+yfinance
+ccxt
