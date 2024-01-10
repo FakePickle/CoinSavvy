@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import csv
 
 # Load the dataset using pandas
-data = pd.read_csv('datasets/training_dataset.csv')
+data = pd.read_csv('../datasets/training_dataset.csv')
 open_value_start = 38721.49
 
 # Model that predicts high value based on open value
@@ -55,7 +55,7 @@ starting_date = '2022-02-01'
 current_date = datetime.strptime(starting_date, '%Y-%m-%d')
 end_date = datetime(current_date.year, 12, 31)
 
-with open("datasets\open_predicted_values.csv", mode="w", newline="") as csv_file:
+with open("../datasets/open_predicted_values.csv", mode="w", newline="") as csv_file:
 
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['time', 'open', 'high', 'low', 'close','volume'])
