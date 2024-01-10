@@ -29,3 +29,28 @@ So, we enhanced our approach by incorporating two features: the ```open``` price
 This more comprehensive model aimed to capture additional market dynamics.
 
 We then got the predcted values closer to the actual dataset and devated a lot lesser than the actual dataset.
+
+### Usage
+
+To predct the btc prices, follow these steps:
+
+1.  Clone the repository to your local machine.
+    ```bash
+    giit clone https://github.com/FakePickle/CoinSavvy.git
+    ```
+2.  Install the required dependencies using the provided `requirements.txt` file.
+3.  Use the model by providing the first day's open value as input.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Author
+
+[Harsh Mistry](https://github.com/FakePickle)
+\
+[Vikranth Udandarao](https://github.com/Vikranth3140)
+\
+[Noel Tiju](https://github.com/noeltiju)
+\
+[Mehul Agrawal](https://github.com/MaxKiller120)

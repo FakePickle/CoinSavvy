@@ -1,0 +1,8 @@
+scikit-learn
+pytorch
+pandas
+numpy
+matplotlib
+requests
+csv
+datetime
