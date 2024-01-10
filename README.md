@@ -1,45 +1,69 @@
-# CoinSavvy BTC Price Prediction Model
+# CoinSavvy Crypto Price Prediction Model
 
-As a part of our Hackathon. We have tried to explore different models which we could use to predict the closing price in the future.
-\
-We have compiled a predictive model for Bitcoin prices based on the historical data from 1st January, 2018 to 31st December, 2022.
-\
-We have worked our way through one approach in our modeling process but then had to shift to another approach as it was deviating a lot from the actual values.
-\
-We would like to take you through our journey in this GitHub page.
+## Overview
 
-## Initial Model: First Day's Open Value
+Welcome to the CoinSavvy Crypto Price Prediction Model! This Python script utilizes a linear regression model to predict Bitcoin's closing prices based on historical data. The model considers the ```open``` and ```volume``` features to make predictions.
 
-In our initial attempt, we developed a model focusing solely on the first day's ```open``` value of Bitcoin. 
-\
-This approach aimed to gauge the predictive power of this single feature in forecasting future prices by trying to predict the ```high``` value solely based on ```open``` value,
-\
-and then predict the ```low``` value based on ```open``` and ```high```,
-\
-and then predct the ```volume``` value based on ```open```, ```high``` and ```low``` values,
-\
-and then finally predicting the ```close``` for the day, which will be the ```open``` value for the next day.
+## How to Use
 
-But the predictions given by the model was not accurate and deviated a lot from the testing dataset.
+- Clone the repository.
 
-## Enhanced Model: First Day's Open and Volume Value
-
-So, we enhanced our approach by incorporating two features: the ```open``` price and the ```volume``` traded on the respective day.
-\
-This more comprehensive model aimed to capture additional market dynamics.
-
-We then got the predcted values closer to the actual dataset and devated a lot lesser than the actual dataset.
-
-### Usage
-
-To predct the btc prices, follow these steps:
-
-1.  Clone the repository to your local machine.
     ```bash
-    giit clone https://github.com/FakePickle/CoinSavvy.git
+    git clone https://github.com/FakePickle/CoinSavvy.git
     ```
-2.  Install the required dependencies using the provided `requirements.txt` file.
-3.  Use the model by providing the first day's open value as input.
+
+- Install required dependencies
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+- Run the model
+
+    ```bash
+    cd final_model
+    python final_model.py
+    ```
+
+## Results:
+
+The script will generate a CSV file (`final_predicted_values.csv`) containing the predicted and actual closing values. Additionally, it will display the Mean Squared Error on both the training and test sets.
+\
+A plot comparing the actual and predicted closing values will be displayed.
+
+## Parameters
+
+*   `ticker`: The cryptocurrency symbol (default is "BTC-USD").
+*   `start_date`: Start date for historical data (default is "2018-02-01").
+*   `end_date`: End date for historical data (default is "2022-01-01").
+
+## File Structure
+    ├── builder_models
+    |    ├── dataset_builder.py
+    |    ├── model_tester_btcusdt.ipynb
+    |    ├── model_tester.ipynb
+    |    ├── open_prediction_model.ipynb
+    |    ├── open_prediction_model.py
+    |    ├── ridge_test_model.ipynb
+    ├── datasets
+    |    ├── final_predicted_values.csv
+    |    ├── open_predicted_values.csv
+    |    ├── testing_dataset.csv
+    |    ├── training_dataset.csv
+    ├── final_model
+    |    ├── final_predicted_values.py
+    ├── requirements.txt
+    ├── LICENSE
+    ├── README.md
+
+*   `final_model/final_predicted_values.py`: The main script for the Bitcoin price prediction model.
+*   `datasets/`: Directory containing the generated CSV file with predicted values.
+
+## Notes
+
+*   The script uses historical data from Yahoo Finance (`yfinance`) for training and testing the model.
+*   The linear regression model considers ```open``` and ```volume``` features for predictions.
+*   Adjust the `start_date` and `end_date` variables in the script to fetch data for different time periods.
 
 ## License
 
@@ -53,4 +77,12 @@ This project is licensed under the [MIT License](LICENSE).
 \
 [Noel Tiju](https://github.com/noeltiju)
 \
-[Mehul Agrawal](https://github.com/MaxKiller120)
+[Mehul Agrawal](https://github.com/Mehul-Ag20)
+
+Feel free to explore, experiment, and contribute to enhancing the model.
+
+**Disclaimer**: Predictive models may not guarantee accurate results. Use with caution and consider additional factors for making financial decisions.
+
+Thank you for exploring the Bitcoin Price Prediction Model! 🚀📈
+\
+Happy predicting!
