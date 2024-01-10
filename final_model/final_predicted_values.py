@@ -6,8 +6,8 @@ import csv
 import matplotlib.pyplot as plt
 
 # Load the dataset using pandas
-data = pd.read_csv('datasets/training_dataset.csv')
-data_test = pd.read_csv('datasets/testing_dataset.csv')
+data = pd.read_csv('../datasets/training_dataset.csv')
+data_test = pd.read_csv('../datasets/testing_dataset.csv')
 
 X_features = ['open', "volumeto"]
 target_column = 'close'
@@ -25,7 +25,7 @@ linear_model.fit(X_train, y_train)
 
 predictions = linear_model.predict(X_test).tolist()
 
-with open("datasets/final_predicted_values.csv", mode="w", newline="") as csv_file:
+with open("../datasets/final_predicted_values.csv", mode="w", newline="") as csv_file:
 
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['time', 'open', 'volumeto', 'predicted_close', 'close'])
